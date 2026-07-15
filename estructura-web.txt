@@ -1,0 +1,20 @@
+src/
+├── assets/            # Imágenes, logos, fuentes globales
+├── components/        # Componentes globales y reutilizables (Botones, Navbar, Layout)
+├── features/          # ¡Aquí va la magia! Subproyectos o módulos independientes
+│   ├── pokedex/
+│   │   ├── components/# Componentes exclusivos de la Pokedex (PokemonCard, SearchBar)
+│   │   ├── hooks/     # Custom hooks exclusivos (usePokemonFetch.js)
+│   │   ├── utils/     # Funciones de utilidad para este subproyecto
+│   │   └── Pokedex.jsx# Componente principal/punto de entrada de la Pokedex
+│   ├── calculator/
+│   │   ├── components/
+│   │   └── Calculator.jsx
+│   └── todo-list/
+│       ├── components/
+│       └── TodoList.jsx
+├── pages/             # Vistas conectadas al enrutador (React Router)
+│   ├── Home.jsx       # Tu página principal donde presentas los subproyectos
+│   └── Dashboard.jsx
+├── App.jsx            # Enrutador principal y configuración global
+└── main.jsx           # Punto de entrada de Vite
