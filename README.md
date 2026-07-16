@@ -7,4 +7,5 @@ If someone reads this, hi. I'm Uruguayan, so maybe you can catch some weird phra
 
 # Log
 -Log 1, 15/07/26: Starting the project. Main page created.
+
 -Log 2, 16/07/26: Pokedex project integrated, react-route installed, routes created. The new files broke the main page, probably some [pokedex app(.css)] error. Review pending for next session.
