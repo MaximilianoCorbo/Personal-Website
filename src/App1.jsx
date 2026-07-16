@@ -1,9 +1,4 @@
 import { useState } from 'react'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Pokedex from './features/pokedex/Pokedex'
-import Individual from './features/pokedex/components/individual' // Importamos tu vista de detalle
-// import Calculator from './features/calculator/Calculator'
-
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
@@ -13,8 +8,7 @@ import cupidLogo from './assets/cupid.svg'
 import calculatorLogo from './assets/calculator.svg'
 import './App.css'
 
-// Vista Home (Tu diseño de portafolio original adaptado como página de inicio)
-function Home() {
+function App() {
   const [count, setCount] = useState(0)
 
   return (
@@ -24,7 +18,7 @@ function Home() {
         <div>
           <h1> Maximiliano Corbo </h1>
           <p>
-            <code> Front and Backend developer</code> based in Montevideo, Uruguay.
+          <code> Front and Backend developer</code> based in Montevideo, Uruguay.
           </p> 
         </div>
 
@@ -45,50 +39,49 @@ function Home() {
           <p>Here you can find some of my projects</p>
           <ul>
             <li name="pokedex">
-              {/* Integración del enlace interno de React Router hacia tu Pokédex */}
-              <Link to="/pokedex">
+              <a href="https://vite.dev/" target="_blank">
                 <img className="logo" src={pokeballLogo} alt="Pokeball logo"    />
                 Pokédex project <br /> used to learn about APIs and infinite scrolling.
-              </Link>
+              </a>
             </li>
             <li name="todo-list">
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
+              <a href="https://react.dev/" target="_blank">
                 <img className="logo" src={todoLogo} alt="" />
                 The classic To-Do List project <br /> used to learn states in React.
               </a>
             </li>
             <li name="music-matcher">
-              <a href="https://vite.dev/" target="_blank" rel="noreferrer">
+              <a href="https://vite.dev/" target="_blank">
                 <img className="logo" src={cupidLogo} alt="" />
                 Music matcher <br /> used to learn about APIs and state management at the same time.
               </a>
             </li>
             <li name="calculator">
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
+              <a href="https://react.dev/" target="_blank">
                 <img className="logo" src={calculatorLogo} alt="" />
                 Calculator project <br /> used to learn how much IA can help me to generate code faster. (I learned to program without IA, but now I can use it to speed up my work keeping an eye on the code quality and the best practices.) 
               </a>
             </li>
             <li>
-              <a href="https://vite.dev/" target="_blank" rel="noreferrer">
+              <a href="https://vite.dev/" target="_blank">
                 <img className="logo" src={viteLogo} alt="" />
                 Rellenar campo y cambiar link pendiente.
               </a>
             </li>
             <li>
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
+              <a href="https://react.dev/" target="_blank">
                 <img className="button-icon" src={reactLogo} alt="" />
                 Rellenar campo y cambiar link pendiente.
               </a>
             </li>
             <li>
-              <a href="https://vite.dev/" target="_blank" rel="noreferrer">
+              <a href="https://vite.dev/" target="_blank">
                 <img className="logo" src={viteLogo} alt="" />
                 Rellenar campo y cambiar link pendiente.
               </a>
             </li>
             <li>
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
+              <a href="https://react.dev/" target="_blank">
                 <img className="button-icon" src={reactLogo} alt="" />
                 Rellenar campo y cambiar link pendiente.
               </a>
@@ -104,7 +97,7 @@ function Home() {
           <p>(And contract me if you need a junior developer)</p>
           <ul>
             <li>
-              <a href="https://github.com/MaximilianoCorbo" target="_blank" rel="noreferrer">
+              <a href="https://github.com/MaximilianoCorbo" target="_blank">
                 <svg
                   className="button-icon"
                   role="presentation"
@@ -116,7 +109,7 @@ function Home() {
               </a>
             </li>
             <li>
-              <a href="" target="_blank" rel="noreferrer">
+              <a href="" target="_blank">
                 <svg
                   className="button-icon"
                   role="presentation"
@@ -128,7 +121,7 @@ function Home() {
               </a>
             </li>
             <li>
-              <a href="" target="_blank" rel="noreferrer">
+              <a href="" target="_blank">
                 <svg
                   className="button-icon"
                   role="presentation"
@@ -140,7 +133,7 @@ function Home() {
               </a>
             </li>
             <li>
-              <a href="" target="_blank" rel="noreferrer">
+              <a href="" target="_blank">
                 <svg
                   className="button-icon"
                   role="presentation"
@@ -159,17 +152,17 @@ function Home() {
           <p>This is a test div.</p>
           <ul>a
             <li>
-              <a href="" target="_blank" rel="noreferrer">
+              <a href="" target="_blank">
                 00001
               </a>
             </li>
             <li>
-              <a href="" target="_blank" rel="noreferrer">
+              <a href="" target="_blank">
                 00002
               </a>
             </li>
             <li>
-              <a href="" target="_blank" rel="noreferrer">
+              <a href="" target="_blank">
                 00003
               </a>
             </li>
@@ -184,32 +177,12 @@ function Home() {
   )
 }
 
-// Router General de tu Aplicación
-export default function App() {
-  return (
-    <Router>
-      <Routes>
-        {/* 1. Ruta de tu Home Principal (Tu portafolio) */}
-        <Route path="/" element={<Home />} />
-
-        {/* 2. Ruta de la lista de la Pokédex */}
-        <Route path="/pokedex" element={<Pokedex />} />
-
-        {/* 3. Ruta de la vista individual de un Pokémon */}
-        <Route path="/pokedex/pokemons/:id" element={<Individual />} />
-
-        {/* Ruta para futuros subproyectos */}
-        {/* <Route path="/calculator" element={<Calculator />} /> */}
-      </Routes>
-    </Router>
-  )
-}
-
-//<button
-//   type="button"
-//   className="counter"
-//   onClick={() => setCount((count) => count + 1)}
-// >
-//   This is a simple counter: {count} <br />
-//   click me to increase the count!
-// </button>
+export default App
+        //<button
+        //   type="button"
+        //   className="counter"
+        //   onClick={() => setCount((count) => count + 1)}
+        // >
+        //   This is a simple counter: {count} <br />
+        //   click me to increase the count!
+        // </button>

@@ -1,3 +1,7 @@
+/* ==========================================
+   ESTILOS GENERALES Y ELEMENTOS COMUNES
+   ========================================== */
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -56,6 +60,10 @@
   }
 }
 
+/* ==========================================
+   SECCIONES PRINCIPALES (LAYOUT)
+   ========================================== */
+
 #center {
   display: flex;
   flex-direction: column;
@@ -104,6 +112,10 @@
   }
 }
 
+/* ==========================================
+   LISTAS DE PROYECTOS Y ENLACES (MÉTODO ROUTER COMPATIBLE)
+   ========================================== */
+
 #next-steps ul {
   list-style: none;
   padding: 0;
@@ -115,7 +127,11 @@
     height: 18px;
   }
 
-  a {
+  /* El selector li[name="pokedex"] a asegura que el componente <Link> 
+     (que compila a un elemento "a" dentro del "li" de la pokedex) 
+     tenga exactamente el mismo estilo de bloque de tu portafolio */
+  a,
+  li[name="pokedex"] a {
     color: var(--text-h);
     font-size: 16px;
     border-radius: 6px;
@@ -130,6 +146,7 @@
     &:hover {
       box-shadow: var(--shadow);
     }
+    
     .button-icon {
       height: 18px;
       width: 18px;
@@ -145,13 +162,18 @@
       flex: 1 1 calc(50% - 8px);
     }
 
-    a {
+    a,
+    li[name="pokedex"] a {
       width: 100%;
       justify-content: center;
       box-sizing: border-box;
     }
   }
 }
+
+/* ==========================================
+   ELEMENTOS DE DECORACIÓN (TICKS & SPACER)
+   ========================================== */
 
 #spacer {
   height: 88px;
