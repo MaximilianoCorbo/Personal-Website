@@ -1,0 +1,107 @@
+
+.Estructura{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--type-color);
+        gap: 10PX;
+        padding: 10px;
+        min-height: 100vh;
+    }
+
+
+    .BodyWrapper{
+        display: flex;
+        flex-wrap: wrap;   
+        align-content: flex-start;
+        background-color: white;
+        border-radius: 20px;
+        width: 100%;
+        justify-content: center;
+        padding: 10px;
+        gap: 12px;
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
+        flex: 1;
+
+    }
+
+    .buscador{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        flex: 0 0 auto;
+    }
+
+    .buscador .todo{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    } 
+
+    .buscador .todo div{
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-weight: 700;
+    }
+    .buscador .todo div{
+        color: white;
+    }
+
+    .buscador .todo button{
+    border-radius: 10px;
+    width: 30%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    }
+    .buscador .todo button img{
+        width: 30px; 
+        height: 30px;  
+    }
+
+    .buscador img{
+        width: 30px; 
+        height: 30px;
+        
+    } 
+
+    .buscador .search{
+        position: relative;
+        width: 100%;
+    }
+
+    .buscador .search input{
+        margin-top: 10px;
+        display: flex;
+        padding: 8px 16px 8px 12px;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        border-radius: 16px;
+        background: var(--grayscale-white, #FFF);
+        box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.25) inset;
+    } 
+
+    .buscador .search button{
+        background-color: transparent;
+        position: absolute;
+        right: 10px;
+        top: 12px;
+        cursor: pointer;
+    }
+    .search input {
+    color: #1d1d1d; /* Fuerza a que el texto sea gris oscuro/negro al escribir */
+    background-color: #ffffff; /* Asegura un fondo claro contrastante */
+    
+    }
+
+    .search input::placeholder {
+    color: #666666;
+    }
+
