@@ -1,26 +1,50 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Pokedex from './features/pokedex/Pokedex'
-import Individual from './features/pokedex/components/individual' // Importamos tu vista de detalle
-// import Calculator from './features/calculator/Calculator'
+import Individual from './features/pokedex/components/individual'
 
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import pokeballLogo from './assets/pokeball.svg'
 import todoLogo from './assets/to-do-list.svg'
 import cupidLogo from './assets/cupid.svg'
 import calculatorLogo from './assets/calculator.svg'
 import './App.css'
 
-// Vista Home (Tu diseño de portafolio original adaptado como página de inicio)
-function Home() {
-  const [count, setCount] = useState(0)
+// 1. NUEVO SUBCOMPONENTE INDEPENDIENTE PARA CADA TARJETA GIRATORIA
+function FlipCardProject({ logo, name, description, to, isInternal = false }) {
+  const [isFlipped, setIsFlipped] = useState(false); // Movido adentro correctamente
 
+  return (
+    <li className={`flip-card ${isFlipped ? 'flipped' : ''}`} onClick={() => setIsFlipped(!isFlipped)}>
+      <div className="flip-card-inner">
+        
+        {/* CARA FRONTAL */}
+        <div className="flip-card-front">
+          <img src={logo} className="button-icon" alt={`${name} logo`} />
+          <span>{name}</span>
+        </div>
+
+        {/* CARA TRASERA */}
+        <div className="flip-card-back">
+          <p>{description}</p>
+          {isInternal ? (
+            <Link to={to} onClick={(e) => e.stopPropagation()}>Ver proyecto</Link>
+          ) : (
+            <a href={to} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>Ver proyecto</a>
+          )}
+        </div>
+
+      </div>
+    </li>
+  );
+}
+
+// Vista Home
+function Home() {
   return (
     <>
       <section id="center">
-        
         <div>
           <h1> Maximiliano Corbo </h1>
           <p>
@@ -30,69 +54,77 @@ function Home() {
 
         <p> Solid bases in software development: React, Node.js, javascript and databases. </p>
         <p> Currently open to work opportunities. </p>
-
       </section>
 
       <div className="ticks"></div>
 
       <section id="next-steps">
-        
         <div id="docs">
           <svg className="icon" role="presentation" aria-hidden="true">
             <use href="/icons.svg#documentation-icon"></use>
           </svg>
           <h2>Documentation and practices</h2>
           <p>Here you can find some of my projects</p>
+          
           <ul>
-            <li name="pokedex">
-              {/* Integración del enlace interno de React Router hacia tu Pokédex */}
-              <Link to="/pokedex">
-                <img className="logo" src={pokeballLogo} alt="Pokeball logo"    />
-                Pokédex project <br /> used to learn about APIs and infinite scrolling.
-              </Link>
-            </li>
-            <li name="todo-list">
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
-                <img className="logo" src={todoLogo} alt="" />
-                The classic To-Do List project <br /> used to learn states in React.
-              </a>
-            </li>
-            <li name="music-matcher">
-              <a href="https://vite.dev/" target="_blank" rel="noreferrer">
-                <img className="logo" src={cupidLogo} alt="" />
-                Music matcher <br /> used to learn about APIs and state management at the same time.
-              </a>
-            </li>
-            <li name="calculator">
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
-                <img className="logo" src={calculatorLogo} alt="" />
-                Calculator project <br /> used to learn how much IA can help me to generate code faster. (I learned to program without IA, but now I can use it to speed up my work keeping an eye on the code quality and the best practices.) 
-              </a>
-            </li>
-            <li>
-              <a href="https://vite.dev/" target="_blank" rel="noreferrer">
-                <img className="logo" src={viteLogo} alt="" />
-                Rellenar campo y cambiar link pendiente.
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Rellenar campo y cambiar link pendiente.
-              </a>
-            </li>
-            <li>
-              <a href="https://vite.dev/" target="_blank" rel="noreferrer">
-                <img className="logo" src={viteLogo} alt="" />
-                Rellenar campo y cambiar link pendiente.
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank" rel="noreferrer">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Rellenar campo y cambiar link pendiente.
-              </a>
-            </li>
+            {/* Proyecto 1: Pokédex (Ruta Interna de React Router) */}
+            <FlipCardProject 
+              logo={pokeballLogo}
+              name="Pokédex"
+              description="Pokédex project used to learn about APIs and infinite scrolling."
+              to="/pokedex"
+              isInternal={true}
+            />
+
+            {/* Proyecto 2: To-Do List */}
+            <FlipCardProject 
+              logo={todoLogo}
+              name="To-Do List"
+              description="The classic To-Do List project used to learn states in React."
+              to="https://react.dev/"
+            />
+
+            {/* Proyecto 3: Music Matcher */}
+            <FlipCardProject 
+              logo={cupidLogo}
+              name="Music Matcher"
+              description="Music matcher used to learn about APIs and state management at the same time."
+              to="https://vite.dev/"
+            />
+
+            {/* Proyecto 4: Calculator */}
+            <FlipCardProject 
+              logo={calculatorLogo}
+              name="Calculator"
+              description="Calculator project used to speed up coding workflows using best practices."
+              to="https://react.dev/"
+            />
+
+            {/* Tarjetas comodín restantes para rellenar los espacios vacíos */}
+            <FlipCardProject 
+              logo={viteLogo}
+              name="Proyecto Pendiente"
+              description="Rellenar campo y cambiar link pendiente."
+              to="https://vite.dev/"
+            />
+            <FlipCardProject 
+              logo={reactLogo}
+              name="Proyecto Pendiente"
+              description="Rellenar campo y cambiar link pendiente."
+              to="https://react.dev/"
+            />
+            <FlipCardProject 
+              logo={viteLogo}
+              name="Proyecto Pendiente"
+              description="Rellenar campo y cambiar link pendiente."
+              to="https://vite.dev/"
+            />
+            <FlipCardProject 
+              logo={reactLogo}
+              name="Proyecto Pendiente"
+              description="Rellenar campo y cambiar link pendiente."
+              to="https://react.dev/"
+            />
           </ul>
         </div>
         
@@ -105,11 +137,7 @@ function Home() {
           <ul>
             <li>
               <a href="https://github.com/MaximilianoCorbo" target="_blank" rel="noreferrer">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#github-icon"></use>
                 </svg>
                 GitHub edited
@@ -117,11 +145,7 @@ function Home() {
             </li>
             <li>
               <a href="" target="_blank" rel="noreferrer">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#discord-icon"></use>
                 </svg>
                 Discord ???
@@ -129,11 +153,7 @@ function Home() {
             </li>
             <li>
               <a href="" target="_blank" rel="noreferrer">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#x-icon"></use>
                 </svg>
                 X.com ???
@@ -141,11 +161,7 @@ function Home() {
             </li>
             <li>
               <a href="" target="_blank" rel="noreferrer">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
+                <svg className="button-icon" role="presentation" aria-hidden="true">
                   <use href="/icons.svg#bluesky-icon"></use>
                 </svg>
                 Bluesky ???
@@ -157,25 +173,12 @@ function Home() {
         <div id="test">
           <h1>Test div</h1>
           <p>This is a test div.</p>
-          <ul>a
-            <li>
-              <a href="" target="_blank" rel="noreferrer">
-                00001
-              </a>
-            </li>
-            <li>
-              <a href="" target="_blank" rel="noreferrer">
-                00002
-              </a>
-            </li>
-            <li>
-              <a href="" target="_blank" rel="noreferrer">
-                00003
-              </a>
-            </li>
+          <ul>
+            <li><a href="" target="_blank" rel="noreferrer">00001</a></li>
+            <li><a href="" target="_blank" rel="noreferrer">00002</a></li>
+            <li><a href="" target="_blank" rel="noreferrer">00003</a></li>
           </ul>
         </div>
-
       </section>
 
       <div className="ticks">b</div>
@@ -184,32 +187,15 @@ function Home() {
   )
 }
 
-// Router General de tu Aplicación
+// Router General
 export default function App() {
   return (
     <Router>
       <Routes>
-        {/* 1. Ruta de tu Home Principal (Tu portafolio) */}
         <Route path="/" element={<Home />} />
-
-        {/* 2. Ruta de la lista de la Pokédex */}
         <Route path="/pokedex" element={<Pokedex />} />
-
-        {/* 3. Ruta de la vista individual de un Pokémon */}
         <Route path="/pokedex/pokemons/:id" element={<Individual />} />
-
-        {/* Ruta para futuros subproyectos */}
-        {/* <Route path="/calculator" element={<Calculator />} /> */}
       </Routes>
     </Router>
   )
 }
-
-//<button
-//   type="button"
-//   className="counter"
-//   onClick={() => setCount((count) => count + 1)}
-// >
-//   This is a simple counter: {count} <br />
-//   click me to increase the count!
-// </button>
