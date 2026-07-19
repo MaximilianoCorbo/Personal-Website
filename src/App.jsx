@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Pokedex from './features/pokedex/Pokedex'
 import Individual from './features/pokedex/components/individual'
+import Header from './features/to-do-list/components/Header.jsx'
+import TodoAppWrapper from './features/to-do-list/ToDo.jsx'
 
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
@@ -13,7 +15,7 @@ import './App.css'
 
 // 1. NUEVO SUBCOMPONENTE INDEPENDIENTE PARA CADA TARJETA GIRATORIA
 function FlipCardProject({ logo, name, description, to, isInternal = false }) {
-  const [isFlipped, setIsFlipped] = useState(false); // Movido adentro correctamente
+  const [isFlipped, setIsFlipped] = useState(false);
 
   return (
     <li className={`flip-card ${isFlipped ? 'flipped' : ''}`} onClick={() => setIsFlipped(!isFlipped)}>
@@ -81,7 +83,8 @@ function Home() {
               logo={todoLogo}
               name="To-Do List"
               description="The classic To-Do List project used to learn states in React."
-              to="https://react.dev/"
+              to="/todo"
+              isInternal={true}
             />
 
             {/* Proyecto 3: Music Matcher */}
@@ -189,10 +192,18 @@ function Home() {
 
 // Router General
 export default function App() {
+   const [theme, setTheme] = useState("light") // Conservamos el estado global del tema para el TodoList
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* Ruta Raíz: Tu Portafolio principal */}
+        <Route path="/" element={<Home />} /> 
+
+        {/* Ruta To-Do List: Muestra la interfaz original pasando los estados del tema */}
+        <Route path="/todo" element={<TodoAppWrapper theme={theme} setTheme={setTheme} />} />
+
+        {/* Rutas de la Pokédex */}
         <Route path="/pokedex" element={<Pokedex />} />
         <Route path="/pokedex/pokemons/:id" element={<Individual />} />
       </Routes>

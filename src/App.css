@@ -81,7 +81,7 @@
 }
 
 /* ==========================================
-   LISTAS DE PROYECTOS Y ENLACES ESTANDARIZADOS
+   LISTAS DE PROYECTOS Y ENLACES ESTANDARIZADOS CON FLIP
    ========================================== */
 
 #next-steps ul {
@@ -91,38 +91,42 @@
   gap: 16px; 
   margin: 32px 16px 0; 
   flex-wrap: wrap;
-  justify-content: space-between; 
+  justify-content: center; 
 
-  /* Contenedor principal del efecto 3D (El LI) */
-  .flip-card {
-    flex: 0 1 30%; 
-    min-width: 140px; 
-    min-height: 120px; /* Incrementamos la altura mínima para que entre bien el texto explicativo */
-    perspective: 1000px; /* Define la profundidad del efecto 3D */
-    cursor: pointer;
+  .logo {
+    height: 30px;
   }
 
-  /* El contenedor que va a rotar sobre sí mismo */
+  /* Contenedor principal del efecto 3D */
+  .flip-card {
+    flex: 0 1 calc(33.333% - 16px); 
+    min-width: 140px; 
+    min-height: 120px; /* Altura para albergar el texto de la descripción */
+    perspective: 1000px; 
+    cursor: pointer;
+    display: flex; /* Asegura un comportamiento de bloque consistente */
+  }
+
   .flip-card-inner {
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d; /* Clave para que las caras se comporten en un entorno 3D */
+    transform-style: preserve-3d; 
   }
 
-  /* Cuando React añade la clase .flipped, la tarjeta gira 180 grados */
   .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
   }
 
-  /* Estilos comunes para ambas caras */
-  .flip-card-front, .flip-card-back {
+  /* Estilos compartidos de las caras */
+  .flip-card-front, 
+  .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Oculta la cara contraria durante el giro */
+    -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
     border-radius: 6px;
     padding: 12px;
@@ -133,7 +137,7 @@
     box-shadow: var(--shadow);
   }
 
-  /* CARA FRONTAL: Hereda la estética exacta de tus botones originales */
+  /* Cara Frontal: Comparte colores y fuentes con el botón simple */
   .flip-card-front {
     color: var(--text-h);
     font-size: 14px;
@@ -146,12 +150,12 @@
     }
   }
 
-  /* CARA TRASERA: Diseño para la explicación */
+  /* Cara Trasera */
   .flip-card-back {
     color: var(--text-p, #ffffff);
     font-size: 12px;
-    background: var(--accent-bg, #222); /* Puedes usar un fondo contrastante o var(--social-bg) */
-    transform: rotateY(180deg); /* Inicialmente está volteada al revés */
+    background: var(--accent-bg, #222); 
+    transform: rotateY(180deg); 
     flex-direction: column;
     gap: 6px;
 
@@ -168,14 +172,62 @@
     }
   }
 
-  /* REGLAS RESPONSIVAS */
+  /* RESPONSIVO GENERAL Y FLIP */
   @media (max-width: 1024px) {
     margin: 20px 12px 0; 
     gap: 12px;
 
     .flip-card {
-      flex: 1 1 calc(50% - 8px);
-      min-height: 100px; /* Un poco más de espacio en móviles */
+      flex: 1 1 calc(50% - 12px);
+      min-height: 100px; 
+    }
+  }
+}
+
+/* ==========================================
+   LISTAS DE ENLACES ESTANDARIZADOS (SIN EFECTO FLIP)
+   ========================================== */
+
+#next-steps ul {
+  
+  /* El li tradicional hereda el tamaño de rejilla pero maneja su propia altura */
+  li:not(.flip-card) {
+    flex: 0 1 calc(33.333% - 16px);
+    min-width: 140px; 
+    display: flex; 
+  }
+
+  /* El enlace directo se estiliza clonando el look limpio de la cara frontal del flip */
+  li:not(.flip-card) a {
+    color: var(--text-h);
+    font-size: 14px;
+    border-radius: 6px;
+    background: var(--social-bg);
+    display: flex;
+    padding: 12px;
+    min-height: 48px; /* Más compacto que las tarjetas flip porque no lleva párrafos */
+    align-items: center; 
+    justify-content: center; 
+    gap: 8px;
+    text-decoration: none;
+    transition: box-shadow 0.3s;
+    width: 100%; 
+    box-sizing: border-box;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+    
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  /* RESPONSIVO EXCLUSIVO PARA TARJETAS SIMPLES */
+  @media (max-width: 1024px) {
+    li:not(.flip-card) {
+      flex: 1 1 calc(50% - 12px);
     }
   }
 }
@@ -184,14 +236,14 @@
    ELEMENTOS DE DECORACIÓN (TICKS & SPACER)
    ========================================== */
 
-#spacer {
+   #spacer {
   height: 88px;
   border-top: 1px solid var(--border);
   @media (max-width: 1024px) {
     height: 48px;
   }
 }
-/*ticks o barra horizontal*/
+
 .ticks {
   position: relative;
   width: 100%;
@@ -213,75 +265,3 @@
     border-right-color: var(--border);
   }
 }
-
-/* ==========================================
-   LISTAS DE PROYECTOS CON EFECTO FLIP (3D)
-   ========================================== */
-
-
-
-
-/* ==========================================
-   LISTAS DE ENLACES ESTANDARIZADOS (SIN EFECTO FLIP)
-   ========================================== */
-#next-steps ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  gap: 16px; 
-  margin: 32px 16px 0; /* Añadimos 16px de margen a los lados para despegarlo del borde */
-  flex-wrap: wrap;
-  justify-content: space-between; 
-
-  .logo {
-    height: 30px;
-  }
-
-  /* Configuramos cada elemento de la lista como una casilla del 30% */
-  li {
-    flex: 0 1 30%; 
-    min-width: 140px; 
-    display: flex; /* Permite que el elemento "li" estire al enlace "a" verticalmente */
-  }
-
-  /* Todos los botones miden el 100% de su casilla, garantizando simetría total */
-  li a {
-    color: var(--text-h);
-    font-size: 14px;
-    border-radius: 6px;
-    background: var(--social-bg);
-    display: flex;
-    padding: 12px; /* Simplificamos el padding */
-    min-height: 48px; /* Forzamos una altura mínima estándar idéntica para todos */
-    align-items: center; /* Centra verticalmente el contenido dentro de la altura */
-    justify-content: center; /* Centra horizontalmente el texto e icono */
-    gap: 8px;
-    text-decoration: none;
-    transition: box-shadow 0.3s;
-    width: 100%; 
-    box-sizing: border-box;
-
-    &:hover {
-      box-shadow: var(--shadow);
-    }
-    
-    .button-icon {
-      height: 18px;
-      width: 18px;
-    }
-  }
-
-  /* REGLAS RESPONSIVAS */
-  @media (max-width: 1024px) {
-    margin: 20px 12px 0; /* Reducimos ligeramente el margen lateral en móviles */
-    gap: 8px;
-
-    li {
-      flex: 1 1 calc(50% - 8px);
-    }
-
-    li a {
-      justify-content: center;
-    }
-  }
-} 
