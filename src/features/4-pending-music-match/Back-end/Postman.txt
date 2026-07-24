@@ -1,0 +1,35 @@
+/////////REGISTER (POST /auth/register)
+
+// {
+//     "mail": "gonza@prueba.com",
+//     "nombre": "gonzaprueba",    
+//     "contrasenia": "prueba123"
+// }
+
+///////////LOGIN (POST /auth/login)
+
+// {
+// "nombre": "gonzaprueba",
+// "contrasenia": "prueba123"
+// }
+
+/////CONTEXTUAL (POST /user/contextual)
+
+// {
+//     "nombreLista": "Prueba2",
+//     "generoID": 2,
+//     "estadoID": 8,
+//     "ocasionID": 8,
+//     "climaID": 4
+// }
+
+///CUPIDO (POST /user/cupido)
+ 
+//  {
+//      "nombreLista": "pruebacupidocambiado",
+//      "artistaID": [1,2,3,4]
+//  }
+
+/// TRAER PLAYLISTS (GET user/perfil)
+
+/// LOGOUT (GET user/logout)

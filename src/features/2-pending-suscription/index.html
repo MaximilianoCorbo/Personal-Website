@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Integrador</title>
+    <link rel="stylesheet" href="style.css">
+   
+</head>
+<body>
+    <!-- Consultar si es necesario envolver el nav en un header -->
+    <nav>
+        <div id="logo">
+            <img src="Materiales\logo-verde.png" alt="" srcset="logo s enpai flex" width="35px" height="28px">
+            <span>Flex</span>
+        </div>
+
+        <ul>
+            <li onclick="producto()">Producto</li>
+            <li onclick="caracteristicas()">Características</li>
+            <li onclick="precios()">Precios</li>
+        </ul>
+
+        <div class="divIngreso">
+            <button id="botonIngreso" onclick="ingresar()">Ingresar</button>
+            <button id="botonRegistro" onclick="ingresar()">Registrarse</button>
+        </div>
+    </nav>
+
+    <header id="header">
+        <div class="contenido">
+            <p>Nuevo</p>
+            <!-- <img src="./Materiales/" alt="Logo de nuevo"> -->
+            <h1>La Plataforma para las empresas del futuro</h1>
+            <h5 id="h5">Productos pensados para los negocios del próximo siglo</h5>
+            <div class="botones">
+                <button class="Solicitar" onclick="ingresar()">Solicitar demo</button>
+                <button class="Registrarse" onclick="ingresar()">Registrarse</button> 
+            </div>
+        </div>
+        <div class="imagen">
+            <img src="./Materiales/header.jpg" class="bg-imagen">
+            <img src="Materiales/circle3-yellow.svg" class="circulo" alt="" srcset="">
+            <img src="Materiales/dots3-blue.svg" class="puntos" alt="" srcset="">
+        </div>
+        
+    </header> 
+
+    <section>
+        <div class="divIconos">
+            <div class="iconos">
+                <img src="Materiales\mail-icon.svg" alt="icono miode tu performance" width="16px" height="16px">
+            </div>
+            <h4>Capacitación</h4>
+            <p>Asistencia y capacitación de primer nivel</p>
+        </div>
+
+        <div class="divIconos">
+            <div class="iconos">
+                <img src="Materiales\analytics-icon.svg" alt="icono analíticas claras" width="16px" height="16px">
+            </div>
+            <h4>Analíticas claras</h4>
+            <p>Disfruta de un dashboard de analíticas claras y accionables</p>
+        </div>
+        
+        <div class="divIconos">
+            <div class="iconos">
+                <img src="Materiales\people-icon.svg" alt="icono soluciones para equipos" width="16px" height="16px">
+            </div>
+            <h4>Soluciones para equipos</h4>
+            <p>Facilita el accionar de tu empresa con nuestra suite de herramientas</p>
+        </div>
+    </section>
+
+    <div class="info" id="infoPrecios">
+        <h2>Precios flexibles que escalan contigo</h2>
+        <p> Nuestra facturación se ajusta al tamaño de tu empresa. Tiempo de prueba de 7 días en todos nuestros planes</p>
+    </div>
+    
+    
+    <div class="tarjetas">
+        <article>
+            <div>
+                <h4>Precio</h4>
+                <h3>Plan básico</h3>
+                <h2>$10/mes</h2>
+                <h6>Facturado anualmente</h6>
+            </div>
+            <ul class="lista">
+                <li><img src="Materiales/check.png" alt="" height="10px"> 1gb de almacenamiento</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Dashboard completo</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Asistencia por correo</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Hasta 10 miembros</li>
+            </ul>
+            <button onclick="ingresar()">Solicitar demo</button>
+        </article>
+
+        <article>
+            <div>
+                <h4>Precio</h4>
+                <h3>Plan Freelancer</h3>
+                <h2>$99/mes</h2>
+                <h6>Facturado anualmente</h6>
+            </div>
+            <ul>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Características basicas</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Asistencia referencial</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> 100gb almacenamiento</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Hasta 100 miembros</li>
+            </ul>
+            <button onclick="ingresar()">Solicitar demo</button>
+        </article>
+
+        <article>
+            <div>
+                <h4>Precio</h4>
+                <h3>Plan Empresas</h3>
+                <h2>$799/mes</h2>
+                <h6>Facturado anualmente</h6>
+            </div>
+            <ul>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Características Freelancer</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> 1TB de almacenamiento</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Asistencia telefónica 24/7</li>
+                <li><img src="Materiales/check.png" alt="" height="10px"> Miembros ilimitados</li>
+            </ul>
+            <button onclick="ingresar()">Solicitar demo</button>
+        </article>
+    </div>
+
+    <footer>
+        <div id="logoFooter">
+            <img src="Materiales\logo-verde.png" alt="" srcset="logo senpai flex" width="28px" height="22px">
+            <span>Flex</span>
+        </div>
+        <ul class="listaFooter">
+            <li>Producto</li>
+            <li>Funcionalidades</li>
+            <li>Precios</li>
+            <li>Recursos</li>
+            <li>Carreras</li>
+            <li>Ayuda</li>
+            <li>Privacidad</li>
+        </ul>
+        <p>© 2022 Flex. Un producto ficticio de Maximiliano Corbo para el curso en Senpai Academy.</p>
+    </footer>
+    <div id="fondoNegro" class="fondoNegro" onclick="cerrar()">
+        <div class="modal">
+            <div id="logoModal">
+                <img src="Materiales\logo-blanco.png" alt="" srcset="logo senpai flex" width="32px" height="25px">
+            </div>
+            <h3>Ingresa tu correo</h3>
+            <p>y empieza a conseguir resultados</p>
+            <form action="">
+                <div class="divInputs">
+                    <p>Correo</p>
+                    <input require class="inputs" type="email" placeholder="tu-correo@senpaiacademy.com">
+                </div>
+                <div class="divInputs">
+                    <p>Contraseña</p>
+                    <input class="inputs" type="password" minlength="5" placeholder="****************">
+                </div>
+                <div id="checkbox">
+                    <input type="checkbox">
+                    <pn>Olvidé mi contraseña</p>
+                </div>
+            <button>Ingresar</button><br>
+            <div id="spanModalRegistro">    
+                <span id="spanBlanco">Aún no tienes cuenta?</span>
+                <span id="spanVerde">Regisrarse</span>
+            </div>
+            </form>
+            <button id="cerrar" onclick="cerrar()">x</button>
+        </div>
+    </div>
+    <script>
+        function ingresar() {
+            const ingresar = document.getElementById("fondoNegro");
+            ingresar.classList.add("disFlex");
+        }
+        function cerrar() {
+            const cerrar =  document.getElementById("fondoNegro");
+            cerrar.classList.remove("disFlex");
+        }
+        function producto() {
+            document.getElementById("header").scrollIntoView();
+	    }
+        function caracteristicas() {
+            document.getElementById("h5").scrollIntoView();
+	    }
+        function precios() {
+            document.getElementById("infoPrecios").scrollIntoView();
+	    }
+
+    </script>
+</body>
+</html>

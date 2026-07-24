@@ -13,3 +13,5 @@ If someone reads this, hi. I'm Uruguayan, so maybe you can catch some weird phra
 -Log 3, 18/07/26: I learn that React router have his own css rules internally, changed some parent(css) errors on my previous script. Repair some minor visual bugs on main page. Added flipping cards on proyects for a professional look.
 
 -Log 4, 18/07/26: To-do list project almost integrated, need to recheck some css classes from the "Change Theme" Button, minor errors. Next session: Repair those errors and add the music match project. Then consider to add the basic projects I made like card holder and suscription page. Keep working, future me. :D  
+
+Log 5, 23/07/26: Css To-Do errors corrected. Some Pokedex css touched too, generic "how is that pokemon?" shadow added for pokemons without photo. Unneeded pokemon photos deleted. Card-holder original files added to the project, Suscription original files added to the project, AUDN (music match) original files added to the project, integration (HTML to JSX(react)) required next session.  

@@ -1,7 +1,3 @@
-*{
-  text-transform: capitalize;
-}
-
 .detalles {
   display: flex;
   min-width: 360px;

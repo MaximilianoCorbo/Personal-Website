@@ -12,36 +12,39 @@ div .ThemeWrapper{
     justify-content: space-evenly;
     align-items: center;
     width: 100vw;
-    height: 300px;
+    height: 20vh;
     background-size: cover;
 }
 
 .dark{
     background-color: hsl(235, 24%, 19%);
-    color: hsl(0, 0%, 98%);
+    color: hsl(235, 24%, 19%);
+    
+    .Header { 
+        background: url('../assets/img/bg-desktop-dark.jpg');
+        background-size: cover;  
+
+        .ThemeDarkButton{
+            background: url(../assets/img/icon-sun.svg);
+            background-size: cover;
+        }
+
+    }
 }
 .light{
     background-color: hsl(0, 0%, 98%);
     color: hsl(235, 24%, 19%);
-}
+    
+    .Header{
+        background: url('../assets/img/bg-desktop-light.jpg');
+        background-size: cover;
 
-.dark .Header{
-    background: url('../assets/img/bg-desktop-dark.jpg');
-    background-size: cover;  
-}
-.light .Header{
-    background: url('../assets/img/bg-desktop-light.jpg');
-    background-size: cover;
-}
-
-.dark .Header .ThemeDarkButton{
-    background: url(../assets/img/icon-sun.svg);
-    background-size: cover;
-}
-.light .Header .ThemeLightButton{
-    background: url(../assets/img/icon-moon.svg);
-    background-size: cover;
-}
+        .ThemeLightButton{
+            background: url(../assets/img/icon-moon.svg);
+            background-size: cover;
+        }
+    }
+} 
 
 .ButtonTheme{
     height: 50px;

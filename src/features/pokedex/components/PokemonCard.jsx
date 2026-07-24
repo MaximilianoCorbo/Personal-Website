@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./PokemonCard.css";
 import { useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
+import ShadowPokemonImg from "../assets/img/pokemons/Sombra.png";
 
 const PokemonCard = ({ url }) => {
   const [data, setData] = useState();
@@ -32,6 +33,11 @@ const PokemonCard = ({ url }) => {
         <img
           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${data.id}.png`}
           alt={data.name}
+          // In case the image fails to load, it will display a shadow image instead.
+          onError={(e) => {
+            e.target.src = ShadowPokemonImg;
+            e.target.onerror = null;
+          }}
         />
       </div>
 
